@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
-const NewSchedule = () => {
+const AutoPosting = () => {
   const [scheduledPosts, setScheduledPosts] = useState([]);
   const [formData, setFormData] = useState({
     content: "",
@@ -11,8 +13,15 @@ const NewSchedule = () => {
   });
   const [editPostId, setEditPostId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
 
-  const userEmail = localStorage.getItem("email");
+  // ✅ Safely access localStorage in useEffect
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const email = localStorage.getItem("email") || "";
+      setUserEmail(email);
+    }
+  }, []);
 
   const fetchScheduledPosts = async () => {
     if (!userEmail) return;
@@ -29,7 +38,7 @@ const NewSchedule = () => {
 
   useEffect(() => {
     fetchScheduledPosts();
-  }, []);
+  }, [userEmail]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -51,7 +60,7 @@ const NewSchedule = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userEmail) {
-      alert("Cant scheduled, as it is a frontend project only!");
+      alert("Cant schedule, frontend project only!");
       return;
     }
 
@@ -91,7 +100,7 @@ const NewSchedule = () => {
         setScheduledPosts(data.scheduledpost);
         resetForm();
       } else {
-        alert("" + data.message);
+        alert(data.message || "Error occurred!");
       }
     } catch (err) {
       setLoading(false);
@@ -134,12 +143,9 @@ const NewSchedule = () => {
     setEditPostId(index);
   };
 
-  const scheduledCount = scheduledPosts.length;
-  const totalPosts = scheduledPosts.length;
-  const publishedToday = 0;
-
   return (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
+      {/* Form */}
       <div className="md:w-1/2 rounded-2xl">
         <div className="bg-white shadow-lg rounded-2xl p-8">
           <h1 className="text-4xl md:text-2xl font-bold text-purple-800 mb-8">
@@ -197,6 +203,7 @@ const NewSchedule = () => {
                 className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               />
             </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Schedule Time
@@ -234,32 +241,9 @@ const NewSchedule = () => {
             )}
           </form>
         </div>
-
-        <div className="bg-white shadow-xl rounded-2xl p-6 border border-gray-200 mt-4">
-          <h2 className="text-xl font-semibold text-purple-700 mb-4">
-            Schedule Stats
-          </h2>
-          <div className="space-y-2">
-            <p className="text-gray-700">
-              Scheduled Posts:{" "}
-              <span className="font-bold text-purple-600 ml-2">
-                {scheduledCount}
-              </span>
-            </p>
-            <p className="text-gray-700">
-              Published Today:{" "}
-              <span className="font-bold text-yellow-600 ml-2">
-                {publishedToday}
-              </span>
-            </p>
-            <p className="text-gray-700">
-              Total Posts:{" "}
-              <span className="font-bold text-blue-600 ml-2">{totalPosts}</span>
-            </p>
-          </div>
-        </div>
       </div>
 
+      {/* Scheduled Posts */}
       <div className="md:w-1/2 bg-white rounded-xl p-6 shadow-sm border border-gray-200">
         <h2 className="text-xl font-semibold text-purple-800 mb-6">
           Scheduled Posts
@@ -274,8 +258,7 @@ const NewSchedule = () => {
             {scheduledPosts.map((post, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl border border-gray-300 shadow-sm relative 
-                     transition-all duration-300 hover:shadow-lg hover:scale-[1.01]"
+                className="bg-white p-6 rounded-xl border border-gray-300 shadow-sm relative transition-all duration-300 hover:shadow-lg hover:scale-[1.01]"
               >
                 <div className="absolute right-4 top-4 flex gap-2">
                   <button
@@ -334,4 +317,4 @@ const NewSchedule = () => {
   );
 };
 
-export default NewSchedule;
+export default AutoPosting;

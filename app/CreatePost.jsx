@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { FaTrash, FaEdit } from "react-icons/fa";
@@ -14,8 +14,11 @@ const CreatePost = () => {
   });
   const [editingIndex, setEditingIndex] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
 
-  const userEmail = localStorage.getItem("email");
+  useEffect(() => {
+    setUserEmail(localStorage.getItem("email") || "");
+  }, []);
 
   const fetchPosts = async () => {
     if (!userEmail) return;
@@ -31,8 +34,8 @@ const CreatePost = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    if (userEmail) fetchPosts();
+  }, [userEmail]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -122,13 +125,14 @@ const CreatePost = () => {
 
   return (
     <div className="max-w-8xl mx-auto flex flex-col md:flex-row gap-10">
+      {/* Form */}
       <div className="md:w-1/2 rounded-2xl">
-        <div className=" bg-white shadow-lg rounded-2xl p-8">
-          <h1 className="text-4xl md:text-2xl font-bold text-purple-800 mb-8 text-left flex  justify-left  gap-3">
+        <div className="bg-white shadow-lg rounded-2xl p-8">
+          <h1 className="text-4xl md:text-2xl font-bold text-purple-800 mb-8">
             {editingIndex !== null ? "Edit Post" : "Create Post"}
           </h1>
-
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Title */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Post Title
@@ -143,7 +147,7 @@ const CreatePost = () => {
                 className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               />
             </div>
-
+            {/* Caption */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Content
@@ -158,7 +162,7 @@ const CreatePost = () => {
                 className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               />
             </div>
-
+            {/* Tags */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Tags / Mention
@@ -172,7 +176,7 @@ const CreatePost = () => {
                 className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               />
             </div>
-
+            {/* Platform */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Platform
@@ -192,7 +196,7 @@ const CreatePost = () => {
                 <option value="YouTube">YouTube</option>
               </select>
             </div>
-
+            {/* Date */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Created At
@@ -206,7 +210,6 @@ const CreatePost = () => {
                 className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
               />
             </div>
-
             <button
               type="submit"
               disabled={loading}
@@ -218,7 +221,6 @@ const CreatePost = () => {
                 ? "Update Post"
                 : "Create Post"}
             </button>
-
             {editingIndex !== null && (
               <button
                 type="button"
@@ -231,24 +233,20 @@ const CreatePost = () => {
           </form>
         </div>
       </div>
-
+      {/* Posts List */}
       <div className="md:w-1/2 bg-white rounded-xl p-6 shadow-sm border border-gray-200">
         <h2 className="text-xl font-semibold text-purple-800 mb-6">
           Created Posts
         </h2>
-
         {posts.length === 0 && (
           <p className="text-center text-gray-400 py-10">No posts created</p>
         )}
-
         {posts.length > 0 && (
           <div className="space-y-6">
             {posts.map((post, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl border border-gray-300 shadow-sm 
-                     flex flex-col md:flex-row justify-between items-start md:items-center gap-4
-                     transition-all duration-300 hover:shadow-lg hover:scale-[1.01]"
+                className="bg-white p-6 rounded-xl border border-gray-300 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]"
               >
                 <div>
                   <h2 className="text-lg font-semibold text-purple-800">
@@ -263,7 +261,6 @@ const CreatePost = () => {
                     Created At: {new Date(post.createdat).toLocaleString()}
                   </p>
                 </div>
-
                 <div className="flex gap-3 mt-3 md:mt-0">
                   <button
                     onClick={() => handleEdit(index)}
@@ -271,7 +268,6 @@ const CreatePost = () => {
                   >
                     <FaEdit />
                   </button>
-
                   <button
                     onClick={() => handleDelete(index)}
                     className="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 transition"
