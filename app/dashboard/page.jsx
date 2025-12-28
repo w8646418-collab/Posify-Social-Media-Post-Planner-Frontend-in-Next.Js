@@ -12,19 +12,11 @@ export default function Dashboard() {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-      alert("Please login first!");
-      router.push("/login");
-    }
-  }, []);
-
-  useEffect(() => {
-    // ✅ Check if user is logged in
+    // ✅ Check login status and get userName
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     const storedName = localStorage.getItem("userName");
 
-    if (!isLoggedIn || isLoggedIn !== "true") {
+    if (isLoggedIn !== "true") {
       alert("Please login first!");
       router.push("/login");
       return;
