@@ -12,7 +12,7 @@ export default function About() {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 max-w-4xl px-4 sm:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 text-white drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 text-white drop-shadow-md pt-20">
             About Social Planner
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-indigo-100 max-w-2xl mx-auto px-2">

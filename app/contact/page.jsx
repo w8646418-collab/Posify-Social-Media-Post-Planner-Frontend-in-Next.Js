@@ -9,7 +9,7 @@ export default function ContactPage() {
       <section className="bg-[url('/images/contacthero.jpeg')] relative flex flex-col items-center justify-center min-h-screen sm:min-h-screen md:min-h-screen bg-cover bg-center text-white px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16">
         <div className="absolute inset-0 bg-black/30 sm:bg-black/20"></div>
         <div className="relative z-10 max-w-4xl text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ffb703] mb-2 sm:mb-3 z-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ffb703] mb-2 sm:mb-3 z-10 pt-20">
             We’d Love to Hear From You
           </h2>
           <p className="text-sm sm:text-base md:text-lg max-w-2xl text-white text-center z-10 px-2">
@@ -38,7 +38,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
           {/* PHONE */}
-          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:-translate-y-0 md:hover:-translate-y-2 transition-all duration-500 p-6 sm:p-8 text-center">
+          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:translate-y-0 md:hover:-translate-y-2 transition-all duration-500 p-6 sm:p-8 text-center">
             <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center rounded-full bg-linear-to-br from-[#efac02] to-[#ffd75b] mb-4 sm:mb-5 shrink-0">
               <svg
                 className="w-5 h-5 sm:w-7 sm:h-7 text-white"
@@ -56,7 +56,7 @@ export default function ContactPage() {
           </div>
 
           {/* EMAIL */}
-          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:-translate-y-0 md:hover:-translate-y-2 md:-mt-6 lg:-mt-10 transition-all duration-500 p-6 sm:p-8 text-center">
+          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:translate-y-0 md:hover:-translate-y-2 md:-mt-6 lg:-mt-10 transition-all duration-500 p-6 sm:p-8 text-center">
             <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center rounded-full bg-linear-to-br from-[#6b1f97] to-[#9d55cc] mb-4 sm:mb-5 shrink-0">
               <svg
                 className="w-5 h-5 sm:w-7 sm:h-7 text-white"
@@ -81,7 +81,7 @@ export default function ContactPage() {
           </div>
 
           {/* ADDRESS */}
-          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:-translate-y-0 md:hover:-translate-y-2 transition-all duration-500 p-6 sm:p-8 text-center">
+          <div className="bg-white/40 backdrop-blur-lg border border-[#7a00cc] rounded-2xl sm:rounded-3xl shadow-lg hover:translate-y-0 md:hover:-translate-y-2 transition-all duration-500 p-6 sm:p-8 text-center">
             <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto flex items-center justify-center rounded-full bg-linear-to-br from-[#efac02] to-[#ffd75b] mb-4 sm:mb-5 shrink-0">
               <svg
                 className="w-5 h-5 sm:w-7 sm:h-7 text-white"

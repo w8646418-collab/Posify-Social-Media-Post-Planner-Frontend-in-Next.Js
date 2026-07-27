@@ -11,7 +11,7 @@ const Hero = () => {
     >
       <div className="absolute inset-0 bg-black/30 sm:bg-black/20"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row md:justify-end">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row md:justify-end pt-20">
         <div className="flex flex-col w-full md:max-w-xl md:mr-6 lg:mr-16 xl:mr-20 text-center md:text-right">
           <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
             Plan. Schedule.{" "}
