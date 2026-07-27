@@ -100,35 +100,37 @@ const Register = () => {
 
   return (
     <section
-      className="flex items-center justify-center min-h-screen relative overflow-hidden mt-15"
+      className="flex items-center justify-center min-h-screen relative overflow-hidden px-4 py-10 sm:py-14"
       style={{
-        backgroundImage: `url("/images/reg1.jpg")`,
+        backgroundImage: `linear-gradient(rgba(79, 5, 129, 0.25), rgba(79, 5, 129, 0.3)), url("/images/reg1.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="relative z-10 bg-white/80 backdrop-blur-md shadow-2xl rounded-3xl p-10 w-lg border border-purple-100 flex flex-col justify-center mt-20 mb-23">
-        <h1 className="text-4xl font-extrabold text-purple-800 mb-8 text-center">
+      <div className="relative z-10 bg-white/85 backdrop-blur-md shadow-2xl rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 w-full max-w-lg mx-auto border border-purple-100 flex flex-col justify-center">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-purple-800 mb-6 sm:mb-8 text-center">
           Register
         </h1>
 
         {errorOverallState && (
-          <p className="text-center text-red-600 mb-4 font-semibold">
+          <p className="text-center text-red-600 mb-3 sm:mb-4 font-semibold text-xs sm:text-sm break-words">
             {errorOverallState}
           </p>
         )}
 
-        <form onSubmit={handleRegister} className="space-y-6">
+        <form onSubmit={handleRegister} className="space-y-4 sm:space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
               Name
             </label>
             {errorNameState && (
-              <p className="text-red-600 text-sm mb-1">{errorNameState}</p>
+              <p className="text-red-600 text-xs sm:text-sm mb-1 break-words">
+                {errorNameState}
+              </p>
             )}
             <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-purple-500">
-              <span className="px-3 text-purple-600">
-                <FaUser />
+              <span className="px-2.5 sm:px-3 text-purple-600 shrink-0">
+                <FaUser className="w-4 h-4 sm:w-5 sm:h-5" />
               </span>
               <input
                 type="text"
@@ -137,21 +139,23 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Enter your name"
                 required
-                className="w-full p-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
+                className="w-full px-0 py-2.5 sm:py-3 pr-3 text-sm sm:text-base bg-white text-gray-800 placeholder-gray-400 focus:outline-none min-w-0"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
               Email Address
             </label>
             {errorEmailState && (
-              <p className="text-red-600 text-sm mb-1">{errorEmailState}</p>
+              <p className="text-red-600 text-xs sm:text-sm mb-1 break-words">
+                {errorEmailState}
+              </p>
             )}
             <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-purple-500">
-              <span className="px-3 text-purple-600">
-                <FaUser />
+              <span className="px-2.5 sm:px-3 text-purple-600 shrink-0">
+                <FaUser className="w-4 h-4 sm:w-5 sm:h-5" />
               </span>
               <input
                 type="email"
@@ -160,21 +164,23 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Enter your email"
                 required
-                className="w-full p-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
+                className="w-full px-0 py-2.5 sm:py-3 pr-3 text-sm sm:text-base bg-white text-gray-800 placeholder-gray-400 focus:outline-none min-w-0"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
               Password
             </label>
             {errorPassState && (
-              <p className="text-red-600 text-sm mb-1">{errorPassState}</p>
+              <p className="text-red-600 text-xs sm:text-sm mb-1 break-words">
+                {errorPassState}
+              </p>
             )}
             <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-purple-500">
-              <span className="px-3 text-purple-600">
-                <FaLock />
+              <span className="px-2.5 sm:px-3 text-purple-600 shrink-0">
+                <FaLock className="w-4 h-4 sm:w-5 sm:h-5" />
               </span>
               <input
                 type="password"
@@ -183,18 +189,18 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Enter your password"
                 required
-                className="w-full p-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
+                className="w-full px-0 py-2.5 sm:py-3 pr-3 text-sm sm:text-base bg-white text-gray-800 placeholder-gray-400 focus:outline-none min-w-0"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
               Confirm Password
             </label>
             <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-purple-500">
-              <span className="px-3 text-purple-600">
-                <FaLock />
+              <span className="px-2.5 sm:px-3 text-purple-600 shrink-0">
+                <FaLock className="w-4 h-4 sm:w-5 sm:h-5" />
               </span>
               <input
                 type="password"
@@ -203,7 +209,7 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Confirm your password"
                 required
-                className="w-full p-3 bg-white text-gray-800 placeholder-gray-400 focus:outline-none"
+                className="w-full px-0 py-2.5 sm:py-3 pr-3 text-sm sm:text-base bg-white text-gray-800 placeholder-gray-400 focus:outline-none min-w-0"
               />
             </div>
           </div>
@@ -214,18 +220,18 @@ const Register = () => {
             className={`w-full ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-linear-to-r from-purple-600 to-purple-800 hover:scale-105 cursor-pointer"
-            } text-white py-3 rounded-lg font-semibold transition-transform shadow-md`}
+                : "bg-linear-to-r from-purple-600 to-purple-800 md:hover:scale-[1.02] cursor-pointer"
+            } text-white py-2.5 sm:py-3 text-sm sm:text-base rounded-lg font-semibold transition-transform shadow-md`}
           >
             {loading ? "Registering..." : "Register"}
           </button>
         </form>
 
-        <p className="text-sm text-center text-gray-500 mt-6">
+        <p className="text-xs sm:text-sm text-center text-gray-500 mt-5 sm:mt-6 break-words">
           Already have an account?{" "}
           <span
             onClick={() => router.push("/login")}
-            className="text-purple-700 font-semibold cursor-pointer hover:underline"
+            className="text-purple-700 font-semibold cursor-pointer hover:underline whitespace-nowrap"
           >
             Login here
           </span>

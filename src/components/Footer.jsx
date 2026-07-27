@@ -8,35 +8,33 @@ import { FaSquarePhone } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-[#d8c9ff] text-[#3b0066]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          
-          {/* ===== Brand Info ===== */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+          {/* Brand Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-extrabold text-[#5C0E8A] tracking-wide">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <span className="text-xl sm:text-2xl font-extrabold text-[#5C0E8A] tracking-wide">
                 Postify
               </span>
             </div>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               Streamline your social media workflow with smart scheduling,
               planning, and automation tools designed for creators.
             </p>
 
-            {/* Social Links (Icons later) */}
-            <div className="flex gap-4 mt-5 text-[#5C0E8A] font-semibold">
-              <span><FaFacebook size={30} /></span>
-              <span><FaTwitter size={30} /></span>
-              <span><FaInstagramSquare size={30} /></span>
+            <div className="flex gap-3 sm:gap-4 mt-4 sm:mt-5 text-[#5C0E8A] font-semibold">
+              <span><FaFacebook size={24} className="sm:w-6 sm:h-6" /></span>
+              <span><FaTwitter size={24} className="sm:w-6 sm:h-6" /></span>
+              <span><FaInstagramSquare size={24} className="sm:w-6 sm:h-6" /></span>
             </div>
           </div>
 
-          {/* ===== Quick Links ===== */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-2xl font-extrabold text-[#5C0E8A] mb-4">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#5C0E8A] mb-3 sm:mb-4">
               Quick Links
             </h3>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-1 sm:space-y-2 text-gray-700 text-sm sm:text-base">
               <li>
                 <a
                   href="/"
@@ -72,28 +70,28 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ===== Contact ===== */}
+          {/* Contact */}
           <div>
-            <h3 className="text-2xl font-extrabold text-[#5C0E8A] mb-4">Contact</h3>
-            <ul className="space-y-3 text-gray-700">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#5C0E8A] mb-3 sm:mb-4">Contact</h3>
+            <ul className="space-y-2 sm:space-y-3 text-gray-700 text-sm sm:text-base">
               <li className="flex items-center gap-2">
-                <span><FaEnvelope size={30} className="text-[#5C0E8A]"/></span>
-                <span>info@Postify.com</span>
+                <span className="shrink-0"><FaEnvelope size={22} className="text-[#5C0E8A] w-5 h-5 sm:w-6 sm:h-6"/></span>
+                <span className="break-all">info@Postify.com</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span><FaSquarePhone size={30} className="text-[#5C0E8A]"/></span>
+              <li className="flex items-start gap-2 flex-wrap">
+                <span className="shrink-0 mt-0.5"><FaSquarePhone size={22} className="text-[#5C0E8A] w-5 h-5 sm:w-6 sm:h-6"/></span>
                 <span>+92-36726495</span>
-                <span>,</span>
+                <span className="hidden sm:inline">,</span>
                 <span>+92-26673678</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* ===== Bottom Line ===== */}
-        <div className="border-t border-[#e3d7ff] mt-10 pt-6 text-center">
-          <p className="text-gray-600 text-sm">
-            © 2025 <span className="font-semibold text-[#5C0E8A]">Postify</span>. 
+        {/* Bottom Line */}
+        <div className="border-t border-[#e3d7ff] mt-8 sm:mt-10 pt-4 sm:pt-6 text-center">
+          <p className="text-gray-600 text-xs sm:text-sm">
+            © 2025 <span className="font-semibold text-[#5C0E8A]">Postify</span>.
             All rights reserved.
           </p>
         </div>

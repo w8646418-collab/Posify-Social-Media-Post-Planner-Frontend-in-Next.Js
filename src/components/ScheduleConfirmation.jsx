@@ -4,35 +4,35 @@ export default function ScheduleConfirmation({ isOpen, onClose, scheduledDate, s
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="bg-dark-100 border border-gray-800 rounded-lg max-w-md w-full p-6">
-        <div className="flex items-center justify-center w-12 h-12 bg-primary bg-opacity-20 rounded-full mx-auto mb-4">
-          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4 py-6">
+      <div className="bg-white border border-purple-200 rounded-2xl sm:rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl">
+        <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-[#efac02]/20 rounded-full mx-auto mb-3 sm:mb-4">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#efac02]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
         </div>
 
-        <h3 className="text-xl font-semibold text-white text-center mb-2">Post Scheduled Successfully!</h3>
+        <h3 className="text-lg sm:text-xl font-bold text-purple-900 text-center mb-2 break-words">Post Scheduled Successfully!</h3>
 
-        <p className="text-gray-400 text-center mb-6">Your post has been scheduled for:</p>
+        <p className="text-purple-700/80 text-center mb-5 sm:mb-6 text-sm sm:text-base">Your post has been scheduled for:</p>
 
-        <div className="bg-dark-200 border border-gray-800 rounded-lg p-4 mb-6">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="text-center">
-              <p className="text-gray-400 text-sm mb-1">Date</p>
-              <p className="text-white font-semibold">{scheduledDate}</p>
+        <div className="bg-purple-50 border border-purple-100 rounded-xl sm:rounded-2xl p-4 sm:p-5 mb-5 sm:mb-6">
+          <div className="flex items-center justify-center gap-4 sm:gap-6">
+            <div className="text-center min-w-0">
+              <p className="text-purple-600 text-xs sm:text-sm mb-1">Date</p>
+              <p className="text-purple-900 font-semibold text-sm sm:text-base break-words">{scheduledDate}</p>
             </div>
-            <div className="w-px h-12 bg-gray-800"></div>
-            <div className="text-center">
-              <p className="text-gray-400 text-sm mb-1">Time</p>
-              <p className="text-white font-semibold">{scheduledTime}</p>
+            <div className="w-px h-10 sm:h-12 bg-purple-200 shrink-0"></div>
+            <div className="text-center min-w-0">
+              <p className="text-purple-600 text-xs sm:text-sm mb-1">Time</p>
+              <p className="text-purple-900 font-semibold text-sm sm:text-base break-words">{scheduledTime}</p>
             </div>
           </div>
         </div>
 
         <button
           onClick={onClose}
-          className="w-full bg-primary hover:bg-green-600 text-white font-medium py-3 rounded-lg transition-colors"
+          className="w-full bg-[#efac02] hover:bg-[#d99a02] text-purple-900 font-semibold py-2.5 sm:py-3 text-sm sm:text-base rounded-xl transition-colors shadow-md"
         >
           Done
         </button>
